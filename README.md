@@ -26,7 +26,7 @@ These scripts initialize the cloud-native infrastructure and automate the moveme
 * `03_configure_snowpipe.sql`: Configures the Snowpipe object for automated, near-zero latency ingestion.
 * `06_monitor_pipeline_health.sql`: Operational queries to track pipe status and ingestion history.
 
-### 2. Transformation (SQL & Python)
+### 2. Transformation & Analytics (SQL & Python)
 These files handle the heavy lifting of cleaning disparate global market data into a math-ready format.
 
 * `04_transform_analytics_view.sql`: Core SQL logic for currency normalization and numeric casting (handling K/M/B suffixes).
