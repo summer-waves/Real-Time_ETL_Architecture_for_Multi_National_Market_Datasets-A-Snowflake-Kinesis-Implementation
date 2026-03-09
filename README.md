@@ -38,6 +38,7 @@ Key logic components driving the data normalization:
 ### Ingestion Layer (AWS)
 * **Kinesis Data Firehose**: Captures live API streams and delivers them to a partitioned S3 Data Lake.
 * **Partitioned Storage**: Objects are stored in `YYYY/MM/DD/HH` folders, optimizing Snowpipe performance and storage costs.
+* **Kinesis Data Streams**: Serves as the high-throughput entry point for raw, real-time market data ingestion.
 
 ### Processing Layer (Lambda & Snowpipe)
 * **Real-Time Validation**: AWS Lambda triggers on every S3 "Put" event, inspecting headers and sniffing for data types that would break downstream loads.
@@ -62,13 +63,6 @@ Key logic components driving the data normalization:
 * **Snowpark (Python)**: Complex data engineering and in-warehouse transformations.
 * **Snowpipe**: Automated data ingestion.
 * **SQL**: High-performance view creation and structural queries.
-
----
-
-## 📊 Data Ingestion & Partitioning
-Data is ingested via **Kinesis Data Firehose** into an **Amazon S3 Data Lake**.
-- **Partitioning Strategy**: Data is partitioned by `YYYY/MM/DD/HH` to optimize downstream query performance.
-- **Source Integrity**: Handled disparate data formats from 36 different international market sources.
 
 ---
 
