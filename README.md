@@ -20,7 +20,7 @@ This project is an end-to-end data engineering solution designed to ingest, vali
 * **`lambda_function.py`**: The Python script deployed to AWS Lambda for real-time S3 file inspection and error handling.
 * **`snowflake_market_transformation.py`**: A Snowpark Python script containing the core cleaning logic and regex-based numeric casting.
 * **`market_analysis_view.sql`**: SQL DDL defining high-performance views for refined analytics.
-* **`Data_Samples/`**: A directory containing raw CSV captures from NASDAQ, Tokyo, Indian, and Toronto exchanges used for testing.
+* **`Datasets/`**: A directory containing raw CSV captures from NASDAQ, Tokyo, Indian, and Toronto exchanges used for testing.
 
 ---
 ## ⚙️ Technical Implementation
