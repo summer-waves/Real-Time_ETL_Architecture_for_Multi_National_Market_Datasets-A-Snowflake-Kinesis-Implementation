@@ -16,11 +16,26 @@ This project is an end-to-end data engineering solution designed to ingest, vali
 
 ---
 
-## 📂 Project Structure
-* **`lambda_function.py`**: The Python script deployed to AWS Lambda for real-time S3 file inspection and error handling.
-* **`snowflake_market_transformation.py`**: A Snowpark Python script containing the core cleaning logic and regex-based numeric casting.
-* **`market_analysis_view.sql`**: SQL DDL defining high-performance views for refined analytics.
-* **`Datasets/`**: A directory containing raw CSV captures from NASDAQ, Tokyo, Indian, and Toronto exchanges used for testing.
+## 📂 Project Structure (ETL Workflow)
+
+1. Data Ingestion & Automation (SQL)
+These scripts initialize the cloud-native infrastructure and automate the movement of data from S3 to Snowflake.
+
+* `01_setup_environment.sql`: Initializes the database, schema, and storage integrations for AWS S3.
+* `02_create_landing_tables.sql`: Defines the "Raw" landing zone where streaming Kinesis data is initially stored.
+* `03_configure_snowpipe.sql`: Configures the Snowpipe object for automated, near-zero latency ingestion.
+* `06_monitor_pipeline_health.sql`: Operational queries to track pipe status and ingestion history.
+
+2. Transformation (SQL & Python)
+These files handle the heavy lifting of cleaning disparate global market data into a math-ready format.
+
+* `04_transform_analytics_view.sql`: Core SQL logic for currency normalization and numeric casting (handling K/M/B suffixes).
+* `05_create_final_market_view.sql`: Final curated view designed for high-performance statistical modeling.
+* `snowflake_market_transformation.py`: A Snowpark (Python) script for advanced in-warehouse data cleaning.
+
+3. Validation & Support (Python & Data)
+* `lambda_function.py`: An AWS Lambda script that "sniffs" incoming S3 files for quality before ingestion.
+* `/Datasets`: Directory containing the 6 original CSV samples (NASDAQ, Tokyo, Indian, etc.) used for pipeline validation.
 
 ---
 ## ⚙️ Technical Implementation
