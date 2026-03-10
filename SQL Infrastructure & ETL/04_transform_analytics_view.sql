@@ -16,5 +16,4 @@ FILE_FORMAT = (FORMAT_NAME = 'global_stock_csv')
 PATTERN = '.*\.csv'
 ON_ERROR = 'CONTINUE'; -- This ensures we get the most data possible
 
--- 3. THE REWARD: See your data
 SELECT * FROM global_market_data LIMIT 20;
